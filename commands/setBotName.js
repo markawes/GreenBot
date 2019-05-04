@@ -1,5 +1,9 @@
 const Discord = require('discord.js');
 module.exports.run = (bot, message, args) => {
+    let commandLog = bot.channels.get('530923952412033044')
+    let command = ("`setname`")
+    let guild = message.guild.name
+    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 if(message.author.id !== "272442568275525634") return message.reply("This command is **NOT** to be abused (Due to Discord API restrictions), contact Mark if you want to use it")
 bot.user.setUsername(args[0]);
 message.reply("Bot username changed!")

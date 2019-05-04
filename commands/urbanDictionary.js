@@ -2,7 +2,10 @@ const Discord = require("discord.js")
 const urban = require("relevant-urban")
 
 module.exports.run = async (bot, message, args) => {
-
+  let commandLog = bot.channels.get('530923952412033044')
+  let command = ("`urban`")
+  let guild = message.guild.name
+  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     if (!args[0]) return message.channel.send("What urban term do you want?");
 
     let res = await urban(args.join(' ')).catch(e => {

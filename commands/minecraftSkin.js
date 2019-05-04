@@ -1,6 +1,10 @@
 const Discord = require("discord.js")
 module.exports.run = (bot, message, args) => {
     {
+        let commandLog = bot.channels.get('530923952412033044')
+        let command = ("`mcs`")
+        let guild = message.guild.name
+        commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     const args = message.content.split(" ").slice(1).join("")
     if (!args) return message.reply("**Type a players name**");
     const image = (`https://minotar.net/armor/body/${args}`);

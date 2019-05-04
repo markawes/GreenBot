@@ -1,5 +1,9 @@
 const Discord = require ("discord.js");
 module.exports.run = (bot, message) => {
+    let commandLog = bot.channels.get('530923952412033044')
+    let command = ("`color`")
+    let guild = message.guild.name
+    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 var randColor = Math.floor(Math.random() * 16777214) + 1
 
 console.log(randColor)

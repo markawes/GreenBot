@@ -1,17 +1,21 @@
 const got = require('got');
 
 exports.run = async (bot, message) => {
-    //await message.reply(':arrows_counterclockwise:');
+	let commandLog = bot.channels.get('530923952412033044')
+    let command = ("`bill`")
+    let guild = message.guild.name
+    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
+    await message.reply('Waking up Bill...');
     const {
         body
-    } = await got('http://belikebill.azurewebsites.net/billgen-API.php?default=1', {
+    } = await got('http://belikebill.mwserver.co/billgen-API.php?default=1', {
         encoding: null
     });
 
     await message.channel.send({
         file: {
             attachment: body,
-            name: 'bill.jpg'
+            name: 'GreenBotbill.jpg'
         }
     });
 

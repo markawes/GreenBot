@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+    let commandLog = bot.channels.get('530923952412033044')
+    let command = ("`gay`")
+    let guild = message.guild.name
+    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 
     let sus = Math.round(Math.random() * 100);
     let target = message.mentions.users.first() || message.author

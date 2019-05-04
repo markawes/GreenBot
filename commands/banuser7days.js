@@ -1,6 +1,10 @@
 const Discord = module.require("discord.js");
 //const moment = require("moment")
 module.exports.run = async (bot, message, args) => { 
+    let commandLog = bot.channels.get('530923952412033044')
+    let command = ("`7dayban`")
+    let guild = message.guild.name
+    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 
 if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You are not allowed to ban users");
 //if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("GiraffeBot does not have permission to ban users");
