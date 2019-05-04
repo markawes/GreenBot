@@ -1,0 +1,2 @@
+# GreenBot
+GreenBot Discord Bot
