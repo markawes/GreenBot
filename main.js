@@ -78,13 +78,10 @@ bot.on('message', async message => {
 	return message.reply("You have been blocked from sending attachments in this server!")
 		}
 	// Attachment Block End
-	if (message.content == "green") {
+	if (message.content.toLowerCase() == "green") {
 		message.channel.send(":penguin:");
 	}
-	if (message.content == "Green")  {
-		message.channel.send(":penguin:");
-	}
-
+	
 	if (message.content =="g!") {
 		message.channel.send("So.... you want me to run a command... well tell me which one noob, I'm not physic!");
 	}
@@ -93,27 +90,15 @@ bot.on('message', async message => {
 		message.channel.send("Did you want this? mc.slimefantasy.com");
 	}
 
-	if (message.content =="penguin") {
-		message.channel.send(":penguin:");
-	}
-
-	if (message.content =="Penguin") {
+	if (message.content.toLowerCase() =="penguin") {
 		message.channel.send(":penguin:");
 	}
 	
-	if (message.content =="Penguins") {
+	if (message.content.toLowerCase() =="penguins") {
 		message.channel.send(":penguin::penguin::penguin:");
 	}
 	
-	if (message.content =="penguins") {
-		message.channel.send(":penguin::penguin::penguin:");
-	}
-	
-	if (message.content =="Greenbot") {
-		message.channel.send(`${message.author.username} loves GreenBot :green_heart:`);
-	}
-		
-	if (message.content =="greenbot") {
+	if (message.content.toLowerCase =="greenbot") {
 		message.channel.send(`${message.author.username} loves GreenBot :green_heart:`);
 	}
 	
