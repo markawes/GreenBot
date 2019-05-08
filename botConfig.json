@@ -1,5 +1,5 @@
 {
-"GreenLogin": "process.env.token",
+"GreenLogin": process.env.token,
 "GreenTestingLogin": "--token here--",
 "prefix": "g!",
 "greenOwner": "188861825100677120",
