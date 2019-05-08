@@ -8,7 +8,7 @@ await message.channel.send({
       color: 0x00ff33,
       description: `R.I.P ${args.length ? args.join(' ') : 'Everything'}`,
       image: {
-        url: 'https://mark-wesley.co.uk/assets/botAPI//commandImages/tombstone_rip.png'
+        url: 'https://greenbot.mwserver.co/images/tombstone_rip.png'
       },
       footer: {
         text: 'May the Soul Rest in Peace.'
