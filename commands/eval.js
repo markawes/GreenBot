@@ -1,5 +1,5 @@
 //const talkedRecently = new Set();
-const botConfig = require("../botConfig.json");
+const botConfig = require("../botConfig.js");
 const Discord = module.require("discord.js");
 
 //const moment = require("moment")
