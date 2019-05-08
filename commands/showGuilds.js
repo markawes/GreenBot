@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const config= require("../botConfig.json")
+const config= require("../botConfig.js")
 module.exports.run = (client, message, args) => {
   let commandLog = client.channels.get('530923952412033044')
   let command = ("`whereareyou`")
