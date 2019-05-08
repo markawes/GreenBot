@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const botSettings = require("../botConfig.json")
+const botSettings = require("../botConfig.js")
 var Twit = require('twit')
 
 var T = new Twit({
