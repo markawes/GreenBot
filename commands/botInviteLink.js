@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const botSettings = require("../botConfig.json")
+const botSettings = require("../botConfig.js")
 module.exports.run = (bot, message, args) => {
     if(!botSettings.ownerDev.includes(message.author.id)){
         return message.reply("This command is locked to the bot owner!"); //lock command to Green only.
