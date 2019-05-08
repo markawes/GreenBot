@@ -1,5 +1,5 @@
 const moment = require("moment");
-const config= require("../botConfig.json")
+const config= require("../botConfig.js")
 module.exports.run = (bot, message, [interval, period]) => {
     if(!config.ownerDev.includes(message.author.id)){
         return message.channel.send("This command is locked to the bot owner and the bot developer!");
