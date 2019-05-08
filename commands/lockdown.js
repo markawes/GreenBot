@@ -1,5 +1,5 @@
 const ms = require('ms');
-const botSettings = require("../botConfig.json")
+const botSettings = require("../botConfig.js")
 exports.run = (bot, message, args) => {
     let commandLog = bot.channels.get('530923952412033044')
     let command = ("`lockdown`")
