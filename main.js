@@ -243,7 +243,7 @@ bot.on('message', async message => {
 		commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 	}
 		
-	if(message.content.toLowerCase() == "cookies") {
+	if(message.content.toLowerCase().includes("cookies")) {
 		message.channel.send("https://tenor.com/YM4e.gif")
 		//bot.channels.get("530923952412033044").send(`${message.author.tag} has used cookies in ${message.guild.name}`)
 	 }
