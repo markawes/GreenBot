@@ -1,5 +1,5 @@
 
-const botSettings = require("../botConfig.json");
+const botSettings = require("../botConfig.js");
 const Discord = module.require("discord.js");
 //const moment = require("moment")
 
