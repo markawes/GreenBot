@@ -1,7 +1,7 @@
 const Discord = require('discord.js'); //loads the library
 const fs = require("fs"); //loads module to read files
 const bot = new Discord.Client({disableEveryone: true}) //the client and prevent bot from pinging everyone
-const botConfig = require("./botConfig.json"); //the config file
+const botConfig = require("./botConfig.js"); //the config file
 const prefix = botConfig.prefix; //the prefix from the config file
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
