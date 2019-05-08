@@ -1,0 +1,7 @@
+**Owner Commands**
+g!botlink (Send invite link to let users invite GreenBot to their server)
+g!restart (Restart the bot)
+g!tweet [message] (Send a tweet via the bot)
+g!playing [text] (Sets the bots "Playing:" message)
+g!setavatar (give greenbot a new look)
+g!whereareyou (shows me where my bot is)

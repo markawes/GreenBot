@@ -1,0 +1,4 @@
+**Admin/Mod Commands**
+g!clip (Mass delete messsges)
+g!lockdown (Lock a channel for a specific duration)
+g!softban Softban will ban and immediatly unban a user whilst deleting any message they wrote in the past 7 days
