@@ -3,10 +3,10 @@ const botSettings = require("../botConfig.js")
 var Twit = require('twit')
 
 var T = new Twit({
-    consumer_key: process.env.consumer_key,
-    consumer_secret: process.env.consumer_secret,
-    access_token: process.env.access_token,
-    access_token_secret: process.env.access_token_secret,
+    consumer_key: process.env.consumerkey,
+    consumer_secret: process.env.consumersecret,
+    access_token: process.env.accesstoken,
+    access_token_secret: process.env.accesstokensecret,
     timeout_ms: 60 * 1000,
 })
 
