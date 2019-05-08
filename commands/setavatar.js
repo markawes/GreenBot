@@ -1,4 +1,4 @@
-const pizza = require("../botConfig.json")
+const pizza = require("../botConfig.js")
 exports.run = async (bot, message, args) => {
     let commandLog = bot.channels.get('530923952412033044')
     let command = ("`setavatar`")
