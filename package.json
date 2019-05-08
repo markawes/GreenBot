@@ -17,6 +17,7 @@
     "pm2": "^2.10.2",
     "pokemon-gif": "^1.0.12",
     "random-puppy": "^1.1.0",
+    "random-number": "^0.0.9",
     "relevant-urban": "^2.0.0",
     "twit": "^2.2.9",
     "urban": "^0.3.1"
