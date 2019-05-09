@@ -59,7 +59,7 @@ bot.on('ready', () => {
     bot.user.setPresence({
         status: "online",
         game: {
-        name: "g!help | For Help Join My Discord Server https://discord.gg/JhkyCSy | Come Follow My Stream",
+        name: "g!help | For Help Join GreenBots Support Server https://discord.gg/YGMcEQ3 | Sub To GreenBots Youtube Channel !Greenbotyt",
         type: "STREAMING",
         url: "https://www.twitch.tv/greensapenguin"
         }
@@ -188,9 +188,9 @@ bot.on('message', async message => {
        case "g!":
        message.channel.send("So.... you want me to run a command... well tell me which one noob, I'm not physic!");
        break;
-       case "g!twitter":
-       message.channel.send("https://twitter.com/GreensaPenguin");
-        bot.log(bot, message, "g!twitter");
+       case "g!GreenBotYt":
+       message.channel.send("https://www.youtube.com/channel/UCzr7PNj3mMUE1uRRcM-tw5g");
+        bot.log(bot, message, "g!GreenBotYT");
         break;
         case "penguin":
         message.channel.send('🐧')
