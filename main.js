@@ -188,7 +188,7 @@ bot.on('message', async message => {
        case "g!":
        message.channel.send("So.... you want me to run a command... well tell me which one noob, I'm not physic!");
        break;
-       case "g!GreenBotYt":
+       case "g!greenbotyt":
        message.channel.send("https://www.youtube.com/channel/UCzr7PNj3mMUE1uRRcM-tw5g");
         bot.log(bot, message, "g!GreenBotYT");
         break;
