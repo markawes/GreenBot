@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 const urban = require("relevant-urban")
 
 module.exports.run = async (bot, message, args) => {
+   if(!message.channel.nsfw) return message.channel.send("Sorry, this command can only be ran in `NSFW`channels")
   let commandLog = bot.channels.get('530923952412033044')
   let command = ("`urban`")
   let guild = message.guild.name
