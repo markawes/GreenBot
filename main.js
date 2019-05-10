@@ -222,7 +222,7 @@ bot.on('message', async message => {
         message.channel.send("**penguins are bae** https://www.youtube.com/watch?v=c7M686pXr6M");
         break;
     }  
-    if(message.content.toLowerCase().includes("cookies")) {
+    if(message.content.toLowerCase().includes("cookies") && message.guild.id = "389472576235372565") {
         message.channel.send("https://tenor.com/YM4e.gif")
         //bot.channels.get("530923952412033044").send(`${message.author.tag} has used cookies in ${message.guild.name}`)
      }
