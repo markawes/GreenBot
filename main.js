@@ -55,7 +55,6 @@ bot.on('ready', () => {
   User Count: ${bot.users.size}
   I am ready!
   `));
-  setInterval(() => {  
     bot.user.setPresence({
         status: "online",
         game: {
@@ -63,7 +62,7 @@ bot.on('ready', () => {
         type: "STREAMING",
         url: "https://www.twitch.tv/greensapenguin"
         }
-        }) }, 900000)
+        })
 });
 //sid = 389472576235372565
 bot.on("guildCreate", async guild => {
