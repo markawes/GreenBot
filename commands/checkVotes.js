@@ -1,4 +1,5 @@
 const config = require ("../botConfig.js")
+const fetch = require("snekfetch")
 module.exports.run = async (bot, message) => {
    if(!config.ownerDev.includes(message.author.id)){
         return;
