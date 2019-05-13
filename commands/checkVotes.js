@@ -1,4 +1,4 @@
-const config = require ("../config.js")
+const config = require ("../botConfig.js")
 module.exports.run = async (bot, message) => {
    if(!config.ownerDev.includes(message.author.id)){
         return;
