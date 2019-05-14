@@ -10,7 +10,7 @@ module.exports.run = (bot, message, args) => {
         commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
    const embed = new Discord.RichEmbed()
    .setTitle("Invite me to your server")
-   .setDescription("https://discordapp.com/oauth2/authorize?client_id=432267856869064704&permissions=8&scope=bot")
+   .setDescription("https://discordapp.com/oauth2/authorize?client_id=432267856869064704&scope=bot&permissions=2080767222")
    .setTimestamp();
 
    message.channel.send(embed)
