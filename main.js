@@ -162,9 +162,11 @@ bot.on('guildMemberAdd', member => {
 // Create an event listener for messages
 bot.on('message', async message => {
     if(message.author.bot || !message.guild || message.webhookID) return; //stops GreenBot from spamming the prefix when he sees the word "prefix"
-      if(message.member.displayName !== null && message.member.displayName.startsWith("[AFK]")) {
+    if(message.member.displayName !== null && message.guild && !message.member.user.bot){ 
+    if(message.member.displayName.startsWith("[AFK]")) {
 message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 }
+ }
     //users who have the role set below will have their messages deleted
     const msgBanned = bot.guilds.get("389472576235372565").roles.find(c => c.name.toLowerCase() ===  "mute"); //only works on Greens main server
     if (message.member.roles.has(msgBanned.id)) {
