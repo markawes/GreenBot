@@ -123,7 +123,7 @@ bot.on("guildDelete", guild => {
          let verifLevels = ["None", "Low\nmust have verified\nemail on account", "Medium - must be registered on Discord for longer than 5 minutes", "High -  (╯°□°）╯︵ ┻━┻ - must be a member of the server for longer than 10 minutes", "Very High - ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻ - must have a verified phone number"];
        
          const serverleftembed = new Discord.RichEmbed()
-             .setColor(`0x008000`)
+             .setColor(`0xff0000`)
              .setAuthor(`Owner: ${guild.owner.user.tag}`, guild.owner.user.displayAvatarURL)
              .setFooter(`Guild Name: ${guild.name} ID: ${guild.id}`, guild.iconURL)
              .setThumbnail(guild.iconURL ? guild.iconURL : guild.owner.user.displayAvatarURL)
