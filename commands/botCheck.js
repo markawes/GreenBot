@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
+let users = ['188861825100677120', '272442568275525634', '288450828837322764'];
 module.exports.run = async (bot, message) => {
-  if(message.author.id !== "188861825100677120" || message.author.id !== "272442568275525634" || message.author.id !== "288450828837322764") return
+      if(!users.includes(message.author.id)) return message.react("❌")
       let servers = [];
         await bot.guilds.filter(s => s.members.filter(m => m.user.bot).size >= 50).map(c => servers.push(`**Server: **${c.name} (${c.id})\n**Bot Count: **${c.members.filter(m => m.user.bot).size}\n**Human Count: **${c.members.filter(m => !m.user.bot).size}`))
         let e = new Discord.RichEmbed()
