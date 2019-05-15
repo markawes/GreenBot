@@ -65,6 +65,17 @@ bot.on('ready', () => {
         })
 });
 //sid = 389472576235372565
+const DBL = require("dblapi.js");
+const dbl = new DBL(`process.env.dblkey`, bot);
+
+// Optional events
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+})
 bot.on("guildCreate", async guild => {
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
      //BEGIN NEW GUILD ADD
