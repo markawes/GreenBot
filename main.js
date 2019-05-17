@@ -5,6 +5,7 @@ const Discord = require('discord.js'),
       prefix = botConfig.prefix,
       sexy = require('chalk'),
       banished = require('./classes/noGreenBot4u.json');
+bot.odevs = botConfig.ownerDev
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
 bot.log = async function(bot, message, command){
