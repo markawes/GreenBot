@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
                 msg.delete();
                 const emb = new A.RichEmbed()
                     .setColor(0xFFFF00)
-                    .setImage('https://mark-wesley.co.uk/i/JdR.gif')
+                    .setImage('https://mwserver.co/assets/botAPI/commandImages/JdR.gif')
                     .setFooter(`Requested by: ${message.author.tag}`);
                 message.channel.send({
                     embed: emb
