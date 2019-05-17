@@ -1,7 +1,6 @@
 const Discord = require("discord.js")
-let users = ['188861825100677120', '272442568275525634', "288450828837322764"]; // Users who can do the "g!botcheck" command 
 module.exports.run = async (bot, message, args) => {
-      if(!users.includes(message.author.id)) return message.react("❌")
+      if(!bot.odevs.includes(message.author.id)) return message.react("❌")
       if(!args[0]) return message.channel.send(`And... the server id is?.. or do I have to read you mind..`);
       if(isNaN(args[0])) return message.channel.send(`Come on mate.. give me a valid server id..`);
       let guild = await bot.guilds.get(args[0])
