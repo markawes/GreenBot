@@ -1,6 +1,6 @@
 const Discord = require('discord.js'),
       fs = require('fs'),
-      bot = new Discord.Client({disableEveryone: true}),
+      bot = new Discord.Client({disableEveryone: true, fetchAllMembers: true}),
       botConfig = require('./botConfig.js'),
       prefix = botConfig.prefix,
       sexy = require('chalk'),
