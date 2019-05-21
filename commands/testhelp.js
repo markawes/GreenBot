@@ -51,6 +51,7 @@ module.exports.run = async (bot, message, args) => {
         "g!playing [text] (Sets the bots \"Playing:\" message)",
         "g!setavatar (give greenbot a new look)",
         "g!whereareyou (shows me where my bot is)",
+        "g!botcheck (Shows what server has over 50 bots.)"
     ]
     let embed = new RichEmbed()
     .setColor(`#FF000`)
@@ -60,7 +61,7 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail(bot.user.displayAvatarURL)
     .setTimestamp()
     .setFooter(`Command list requested by ${message.author.username}`)
-    if(message.member.hasPermission(['MANAGE_GUILD', "ADMINISTRATOR", "KICK_MEMBERS", "BAN_MEMBERS", "MANAGE_MESSAGES"])){
+    if(message.member.hasPermission('MANAGE_GUILD' || "ADMINISTRATOR" || "KICK_MEMBERS" || "BAN_MEMBERS" || "MANAGE_MESSAGES")){
         embed.addField(`Moderator Commands`, admincmds.join('\n'))
         embed.addBlankField()
     }
