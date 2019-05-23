@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         integer: true
     }
     let random = rn(options);
-    message.channel.sendCode("", cows()[random])
+    message.channel.send(cows()[random], {code: ""})
 }
 
  
