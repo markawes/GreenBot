@@ -181,6 +181,14 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 }
 }
 }
+      //Emoji only talk people!
+      if(message.channel.id === "584146819110404107"){
+	if(!message.content.includes("<:") && !message.content.includes("<a:") &&  !message.content.includes(":") && !message.content.includes(":>") ){
+	message.delete()
+	return message.channel.send(`${message.author.tag}, this is an emote only channel!`).then(d => d.delete(15000))
+	}
+	}
+      //end emoji only talk 
     //users who have the role set below will have their messages deleted
     const msgBanned = bot.guilds.get("389472576235372565").roles.find(c => c.name.toLowerCase() ===  "mute"); //only works on Greens main server
     if (message.member.roles.has(msgBanned.id)) {
