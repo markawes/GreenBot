@@ -78,6 +78,7 @@ dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
 bot.on("guildCreate", async guild => {
+ if(guild.available == false) return;
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
      //BEGIN NEW GUILD ADD
      let serverSize = guild.memberCount;
@@ -126,6 +127,7 @@ bot.on("guildCreate", async guild => {
    
 });
 bot.on("guildDelete", guild => {
+if(guild.available == false) return;
     console.log(`Left guild ${guild.name} (id: ${guild.id}). This guild had ${guild.memberCount} members!`);
     //bot.channels.get("430436180723499010").send(`Left guild ${guild.name} \nGuild ID: (id: ${guild.id}). \nGuild had: ${guild.memberCount} members!\nGuild Owner: ${guild.owner}`);
          //BEGIN NEW GUILD ADD
