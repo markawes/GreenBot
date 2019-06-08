@@ -78,7 +78,7 @@ dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
 bot.on("guildCreate", async guild => {
- if(guild.available == false) return;
+ if(guild.available == true){ 
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
      //BEGIN NEW GUILD ADD
      let serverSize = guild.memberCount;
@@ -124,10 +124,10 @@ bot.on("guildCreate", async guild => {
         }, 5000)
     }
     //end the baishment code
-   
+ }
 });
 bot.on("guildDelete", guild => {
-if(guild.available == false) return;
+if(guild.available == true) {
     console.log(`Left guild ${guild.name} (id: ${guild.id}). This guild had ${guild.memberCount} members!`);
     //bot.channels.get("430436180723499010").send(`Left guild ${guild.name} \nGuild ID: (id: ${guild.id}). \nGuild had: ${guild.memberCount} members!\nGuild Owner: ${guild.owner}`);
          //BEGIN NEW GUILD ADD
@@ -159,6 +159,7 @@ if(guild.available == false) return;
              .addField(`Server Created At`, guild.createdAt)
          bot.channels.get('526573436818948107').send(serverleftembed);
          //END NEW GUILD ADD
+}
 });
 bot.on('guildMemberAdd', member => {
     if(member.guild.id == '389472576235372565'){ // Greens Server
