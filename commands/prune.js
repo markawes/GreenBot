@@ -1,15 +1,9 @@
 const Discord = require("discord.js")
 module.exports.run = async (bot, message, args) => {
 	if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You do not have permission to mass delete messages.");
-    var clipper = message.author.username
-    var botuser = bot.user.username
 	let mention = message.mentions.users.first();
-	let modlog = bot.channels.get('430436180723499010')
-	const guild = message.guild.name
-	let chan  = message.channel.name
-	const secretchan = message.guild.channels.find("name", "logs");
-	if(!modlog) return message.reply("You need to create a channe called logs.");
-	if(!secretchan) return message.reply("Prune Failed : Please create a channel called `logs` so you can log the prune events")
+	const secretchan = message.guild.channels.find(c => c.name == "logs");
+	if(!secretchan) return message.reply("Prune Failed: Please create a channel called `logs` so you can log the prune events")
 	let amount;
 	if(mention) {
 		amount = 100
@@ -22,30 +16,26 @@ module.exports.run = async (bot, message, args) => {
 	try {
 		let messages = await message.channel.fetchMessages({limit: amount});
 		messages = messages.filter(m => m.createdTimestamp >= Date.now() - 1179360000);
-		
 		let mention = message.mentions.users.first();
 		if(mention) messages = messages.filter(m => m.author.id === mention.id || m.content === message.content);
 
 		let pruned = messages.size;
 		if(pruned < 1) return message.channel.send("No clip-able messages were found.");
 		await message.channel.bulkDelete(messages);
-		
-		//modlog.send(`**MOD LOG** ${clipper} has asked ${botuser} to delete ${pruned === amount ? pruned - 1 : pruned} messages from [${chan}], this was successful.`)
-		//.then(m => m.delete(5000));
-
 		const embed = new Discord.RichEmbed()
-  .setAuthor(`Mod action by ${message.author.tag}`, message.author.displayAvatarURL)
-  .addField('Messages Pruned:', `**${clipper}** has asked **${botuser}** to delete **${pruned === amount ? pruned - 1 : pruned}** messages from [${chan}] in ${guild}`)
-.addField('Status', `Successful ${pruned === amount ? pruned - 1 : pruned} messages were deleted!`)
-  .setThumbnail(message.author.displayAvatarURL)
-  .setColor(0x00ff33)
-  .setTimestamp();
-	modlog.send({embed})
-	secretchan.send({embed})
-	message.channel.send({embed}).then(m => m.delete(5000));
+  		.setAuthor(`${message.guild.name} (${message.guild.id})`, message.guild.iconURL)
+  		.addField(`Messages Pruned`, `**${message.author.tag}** has asked **${bot.user.username}** to delete **${pruned === amount ? pruned - 1 : pruned}** messages from [${message.channel.name}] in ${message.guild.name}`)
+		.addField(`Status`, `Successful ${pruned === amount ? pruned - 1 : pruned} messages were deleted!`)
+  		.setFooter(`Mod Action By: @${message.author.tag} (${message.author.id})`, message.author.displayAvatarURL)
+		.setThumbnail(message.author.displayAvatarURL)
+  		.setColor(0x00ff33)
+  		.setTimestamp();
+        bot.channels.get('430436180723499010').send({embed})
+		secretchan.send({embed})
+		message.channel.send({embed}).then(m => m.delete(5000));
 	
 	} catch(e) {
-		modlog.send(`Prune failed: ${e.message}`);
+		bot.channels.get('430436180723499010').send({embed: {description: e.stack, title: "Prune Failed", color: 0xFF0000, author: {name: `${message.guild.name} (${message.guild.id})`, icon_url: message.guild.iconURL}, timestamp: new Date()}});
 	}
 }
 
