@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 		.setThumbnail(message.author.displayAvatarURL)
   		.setColor(0x00ff33)
   		.setTimestamp();
-        bot.channels.get('430436180723499010').send({embed})
+		if(message.guild.id !== "389472576235372565"){ bot.channels.get('430436180723499010').send({embed})}
 		secretchan.send({embed})
 		message.channel.send({embed}).then(m => m.delete(5000));
 	
