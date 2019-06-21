@@ -161,17 +161,19 @@ if(guild.available == true) {
          //END NEW GUILD ADD
 }
 });
-bot.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', async (member) => {
     if(member.guild.id == '389472576235372565'){ // Greens Server
     member.guild.channels.get('430206024243478528').setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`)
     member.guild.channels.get('430206266208419851').setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`)
-   member.guild.channels.get('430206301537304576').setName(`Bots + Members : ${member.guild.members.size}`)
-   }else
-   if(member.guild.id == '389472576235372565') { // Marks Server
-   member.guild.channels.get('430206024243478528').setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`)
-   member.guild.channels.get('430206266208419851').setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`)
-   member.guild.channels.get('430206301537304576').setName(`Bots + Members : ${member.guild.members.size}`)
-}  
+    member.guild.channels.get('430206301537304576').setName(`Bots + Members : ${member.guild.members.size}`)
+   }
+});
+bot.on('guildMemberRemove', async (member) => {
+    if(member.guild.id == '389472576235372565'){ // Greens Server
+    member.guild.channels.get('430206024243478528').setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`)
+    member.guild.channels.get('430206266208419851').setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`)
+    member.guild.channels.get('430206301537304576').setName(`Bots + Members : ${member.guild.members.size}`)
+   }
 });
  
 // Create an event listener for messages
