@@ -216,6 +216,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
        bot.log(bot, message, 'Master')
        break;
        case "g!":
+	if(message.guild.id === "264445053596991498") return;
        message.channel.send("So.... you want me to run a command... well tell me which one noob, I'm not physic!");
        break;
        case "g!greenbotyt":
