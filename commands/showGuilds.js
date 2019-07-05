@@ -1,10 +1,6 @@
 const Discord = require("discord.js")
 const config= require("../botConfig.js")
 module.exports.run = (client, message, args) => {
-  let commandLog = client.channels.get('530923952412033044')
-  let command = ("`whereareyou`")
-  let guild = message.guild.name
-  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
   const commandOwner = client.users.get('272442568275525634')
   //if(message.guild.id !== "389472576235372565") return message.reply("This is not where the Master Sword lies!")
       if(!config.ownerDev.includes(message.author.id)){
