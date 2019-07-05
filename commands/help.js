@@ -1,6 +1,5 @@
 const {RichEmbed} = require('discord.js');
 module.exports.run = async (bot, message, args) => {
-    bot.channels.get('530923952412033044').send(`${message.author.tag} has used \`help\` in ${message.guild.name}`)
     let embedMessages = message.channel.permissionsFor(message.guild.me).has("EMBED_LINKS");
     if(!embedMessages) return message.channel.send("I do not have permission EMBED_LINKS");
     let generalcmds = [
