@@ -1,10 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot,message,args) => {
-  let commandLog = bot.channels.get('530923952412033044')
-  let command = ("`perms`")
-  let guild = message.guild.name
-  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 
   let pUser = message.mentions.members.first() || message.guild.members.get(args[0]) || message.mentions.users.first() || message.member;
     let fields = [];
