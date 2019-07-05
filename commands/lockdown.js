@@ -1,10 +1,6 @@
 const ms = require('ms');
 const botSettings = require("../botConfig.js")
 exports.run = (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`lockdown`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     if(!botSettings.ownerDev.includes(message.author.id)){
         return message.channel.send(":x: Nice try, but you do not have permission to authorise a lockdown!");
         } 
