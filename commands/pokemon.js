@@ -2,10 +2,6 @@ const Discord = require("discord.js")
 //const pokemonGif = require('pokemon-gif');
 
 module.exports.run = (bot, message, args) => {
-  let commandLog = bot.channels.get('530923952412033044')
-  let command = ("`pokemon`")
-  let guild = message.guild.name
-  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 let pokedexNumberToName = require('../node_modules/pokemon-gif/lib/pokedex-number-to-name');
 let pokemonNameToNumber = require('../node_modules/pokemon-gif/lib/pokemon-name-to-number');
 
