@@ -1,8 +1,4 @@
 module.exports.run = (bot, message, args) => {
-  let commandLog = bot.channels.get('530923952412033044')
-  let command = ("`cheeve`")
-  let guild = message.guild.name
-  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     const snekfetch = require('snekfetch');
   let [title, contents] = args.join(" ").split("|");
   if(!contents) {
