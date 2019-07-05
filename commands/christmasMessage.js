@@ -1,8 +1,4 @@
 module.exports.run = async (bot, message, args) => {
-	let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`xmas`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     const talkedRecently = new Set();
     if(talkedRecently.has(message.author.id)) {
         return message.channel.send("**STOP IT!!!** : I can only do one Xmas message at a time, I'm not a fucking robot");
