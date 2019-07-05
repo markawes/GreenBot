@@ -2,10 +2,6 @@ const Discord = require("discord.js")
 module.exports.run = (bot, message, args) => {
     let proof = message.guild.emojis.find(e => e.name === args[1])
     if(!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send(`You don't have the required permissions to run this command!\nMissing : \`MANAGE_EMOJI\``).then(m => m.delete(15000).catch());
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`addemoji`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     message.delete().catch()
     if (!args[0]) return message.channel.send('Please Provide a Link!\nExample `g!addemoji linkhere namehere`')
     if (!args[1]) return message.channel.send('Please Provide a Name for the emote.\nExample `g!addemoji linkhere namehere`')
