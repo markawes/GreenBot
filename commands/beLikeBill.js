@@ -1,10 +1,6 @@
 const got = require('got');
 
 exports.run = async (bot, message) => {
-	let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`bill`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     await message.reply('Waking up Bill...');
     const {
         body
