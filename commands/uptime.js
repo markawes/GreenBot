@@ -1,11 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`uptime`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
-    const penguin = bot.emojis.find("name", "penguinsfish")
+    const penguin = bot.emojis.find(c => c.name === "penguinsfish")
     let ms = bot.uptime;
     let cd = 24 * 60 * 60 * 1000; // Calc days
     let ch = 60 * 60 * 1000; // Calc hours
