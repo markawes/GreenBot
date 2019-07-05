@@ -9,10 +9,6 @@ module.exports.run = async (bot, message, args) => {
    if(!botSettings.ownerDev.includes(message.author.id)){
         return message.channel.send("This command is locked to the bot owner and the bot developer!");
         } else {
-          let commandLog = bot.channels.get('530923952412033044')
-          let command = ("`restart`")
-          let guild = message.guild.name
-          commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
 
             message.channel.send('Are you sure you want to reboot me?\n\nReply with \`cancel\` to **abort** the reboot. The reboot will self-abort in 30 seconds.');
             return message.channel.awaitMessages(m => m.author.id === message.author.id, {
