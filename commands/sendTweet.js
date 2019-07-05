@@ -11,10 +11,6 @@ var T = new Twit({
 })
 
 module.exports.run = (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`tweet`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     if(!botSettings.greenOwner.includes(message.author.id)){
         return message.reply("This command is locked to the bot owner!"); //lock command to Green only.
         }
