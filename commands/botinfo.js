@@ -4,10 +4,6 @@ let usage = usageMb.toFixed(2);
 const embedClass = require('../classes/embedMessage.js')
 
 module.exports.run = async (bot, message) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`botinfo`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     // if (message.author.id !== '188861825100677120') {
     //     return message.reply(`This command is locked to Greensanoob`);
     // } //this is here incase you ever want to lock the command to yourself - up to you
@@ -46,9 +42,7 @@ module.exports.run = async (bot, message) => {
             },
             { 
                 title:`Social`,
-                content: `I am in **${bot.guilds.size}** server (s)\n\
-**Total Users:** ${bot.users.filter(i => !i.bot).size}\n\
-**Total Bots:** ${bot.users.filter(i => i.bot).size}`,
+                content: `I am in **${bot.guilds.size}** server${bot.guilds.size === 1 ? "" : "s"}\n**Total Users:** ${bot.users.filter(i => !i.bot).size}\n**Total Bots:** ${bot.users.filter(i => i.bot).size}\n**Total Emojis: **${bot.emojis.size}`,
                 inline: true
             }
             ],
