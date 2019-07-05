@@ -1,8 +1,4 @@
 module.exports.run = (bot, message) => {
-      let commandLog = bot.channels.get('530923952412033044')
-      let command = ("`memberstats`")
-      let guild2 = message.guild.name
-      commandLog.send(`${message.author.tag} has used ${command} in ${guild2}`)
     var human = 0;
     var bot = 0;
     var on = 0;
