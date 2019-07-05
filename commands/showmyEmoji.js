@@ -1,8 +1,4 @@
 module.exports.run = (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`emoji`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     if (!message.guild.emojis.size)
     return message.channel.send("This server has no custom emoji :frowning:");
 
