@@ -23,7 +23,6 @@ bot.log = async function(bot, message, command, args){
 bot.error = async function(bot, title, error){
     console.log(`[${title}] - ${error}`)
     let e = new Discord.RichEmbed()
-    .setAuthor(bot.user.tag, bot.user.displayAvatarURL)
     .setTitle(title)
     .setDescription(error)
    try{bot.channels.get('567115961379979269').send(e)}catch(e){}
