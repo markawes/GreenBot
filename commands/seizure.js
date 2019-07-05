@@ -1,9 +1,5 @@
 const A = require('discord.js');
 exports.run = async (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`smile`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     message.delete();
     const emoji1 = '🇳'
     const emoji = '🇾'
