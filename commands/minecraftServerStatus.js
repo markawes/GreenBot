@@ -1,8 +1,4 @@
 module.exports.run = async (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`mss`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
     var request = require ("request")
     var mcIP = args[0];
     var mcPort = ""
