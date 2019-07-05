@@ -8,13 +8,15 @@ const Discord = require('discord.js'),
 bot.odevs = botConfig.ownerDev
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
-bot.log = async function(bot, message, command){
+bot.log = async function(bot, message, command, args){
     try{
         let e = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL)
         .setTitle(`Command used: ${command}`)
         .setFooter(`Server: ${message.guild.name} (${message.guild.id})`, message.guild.iconURL)
         .setTimestamp()
+	.setColor(message.guild ? message.member.displayColor : `#FF0000`)
+	args ? e.setDescription(args.join(" ")) : null;
         bot.channels.get('530923952412033044').send(e)
     }catch(e){console.log(`Command Log ERROR: ${e.stack}`)}
 };
@@ -280,7 +282,10 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.ratelimits.set(message.author.id, now);
     }
     let cmd = bot.commands.get(command.slice(prefix.length));
-    if(cmd) cmd.run(bot, message, args);
+    if(cmd){
+	bot.log(bot, message, cmd.name, args)
+	cmd.run(bot, message, args)
+    }
 });
  
 // Log our bot in, keep the token save and don't post it on your server lol
