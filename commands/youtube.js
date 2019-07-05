@@ -1,12 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    let commandLog = bot.channels.get('530923952412033044')
-    let command = ("`youtube`")
-    let guild = message.guild.name
-    commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
-
-
     let youtube = args.slice(0).join('+');
 
         let link = `https://www.youtube.com/results?search_query=` + youtube;
