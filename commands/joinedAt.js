@@ -1,10 +1,6 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 module.exports.run = async (bot, message, args) => {
-   let commandLog = bot.channels.get('530923952412033044');
-   let command = ("`joined`");
-   let guild = message.guild.name;
-   commandLog.send(`${message.author.tag} has used ${command} in ${guild}`);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You didn't say the magic word.");
 let data = [null], name = [null], num = 0;
 await message.guild.members.sort((a, b) => b.joinedAt - a.joinedAt).forEach((m, i)=> {
