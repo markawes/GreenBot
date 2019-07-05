@@ -13,7 +13,6 @@ module.exports.run = (bot,message, args) => {
         .addField(`Managed by a service`, emoji.managed, true)
         .addField(`Emoji Server`, emoji.guild.name, true)
         .setThumbnail(emoji.url)
-        .setFooter("Credit to Elara")
     message.channel.send(embed)
 }
 
