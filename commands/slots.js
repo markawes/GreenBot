@@ -3,10 +3,7 @@ function randomInt(min, max) {
 }
 
 exports.run = async (bot, message) => {
-  let commandLog = bot.channels.get('530923952412033044')
-  let command = ("`slots`")
-  let guild = message.guild.name
-  commandLog.send(`${message.author.tag} has used ${command} in ${guild}`)
+
   
   const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '🍋', '🍪'];
 
