@@ -78,7 +78,7 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
-dbl = new DBL(config.dblapiKey, { webhookAuth: 'testing' }),
+dbl = new DBL(process.env.dblkey, { webhookAuth: 'testing' }),
 dbl.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.hostname}:${hook.port}${hook.path}`));
 dbl.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send({embed: {description: `${await getUsername(vote)}#${await getDiscriminator(vote)} just voted for MarksBot - \`m.vote\``, color: 0x2caecb, timestamp: new Date()}}))
 
