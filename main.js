@@ -68,7 +68,7 @@ bot.on('ready', () => {
 });
 //sid = 389472576235372565
 const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.dblkey, bot);
+const dbl = new DBL(process.env.dblkey, { webhookAuth: 'testing' }, bot);
 
 // Optional events
 dbl.on('posted', () => {
@@ -78,16 +78,14 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
-const dbls = new DBL(process.env.dblkey, { webhookAuth: 'testing' })
-dbls.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.hostname}:${hook.path}`));
-dbls.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send({embed: {description: `${await getUsername(vote)}#${await getDiscriminator(vote)} just voted for GreenBot - \`g!vote\``, color: 0x009900, timestamp: new Date()}}))
-
 async function getUsername(vote) {
-return new Promise(async resolve => resolve((await dbls.getUser(vote.user)).username))
+return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username))
 }
 async function getDiscriminator(vote) {
-return new Promise(async resolve => resolve((await dbls.getUser(vote.user)).discriminator))
+return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).discriminator))
 }
+dbl.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.hostname}:${hook.path}`));
+dbl.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send({embed: {description: `${await getUsername(vote)}#${await getDiscriminator(vote)} just voted for GreenBot - \`g!vote\``, color: 0x009900, timestamp: new Date()}}))
 bot.on("guildCreate", async guild => {
  if(guild.available == true){ 
     console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
