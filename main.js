@@ -79,7 +79,7 @@ dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
 const dbls = new DBL(process.env.dblkey, { webhookAuth: 'testing' })
-dbls.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.hostname}:${hook.port}${hook.path}`));
+dbls.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.hostname}:${hook.path}`));
 dbls.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send({embed: {description: `${await getUsername(vote)}#${await getDiscriminator(vote)} just voted for GreenBot - \`g!vote\``, color: 0x009900, timestamp: new Date()}}))
 
 async function getUsername(vote) {
