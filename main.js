@@ -68,7 +68,7 @@ bot.on('ready', () => {
 });
 //sid = 389472576235372565
 const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.dblkey, { webhookAuth: 'testing' }, bot);
+const dbl = new DBL(process.env.dblkey, {webhookPort: 8080, webhookAuth: 'testing' }, bot);
 
 // Optional events
 dbl.on('posted', () => {
