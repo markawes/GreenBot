@@ -12,7 +12,6 @@ g!memberstats (Displays information about members/bots)
 g!penguintypes (List Penguin Types)
 g!penguin (Displays images of Penguins)
 g!penguinvideo (Displays A Video of Penguins)
-g!monkeyvideo (Displays A Video of Monkeys)
 g!ping (Check the bots connection to Discord)
 g!pokemon [name] (Display selected pokemon example g!pokemon pikachu)
 g!color (Displays a random color)
@@ -31,4 +30,4 @@ g!birthday [user] (to tell them happy birthday)
 g!perms (Shows What You Can Do)
 g!joined (shows when members joined the server)
 g!mss (to show the status of a minecraft server)
-For More Help Go Here --> https://greenbot.mwserver.co/
+For More Commands Go Here --> https://greenbot.mwserver.co/
