@@ -253,9 +253,9 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!lb")
         message.channel.send("http://littlebitch.greensapenguin.com/");
         break;
-        case "g!reee":
-        bot.log(bot, message, "g!reee")
-        message.channel.send("REEEEEEEEEEEE");
+        case "g!penguintypes":
+        bot.log(bot, message, "penguintypes")
+        message.channel.send("**List of Penguin Species** https://www.birdlife.org/worldwide/news/list-penguin-species");
         break;
         case "g!penguinvideo":
         bot.log(bot, message, "g!penguinvideo")
