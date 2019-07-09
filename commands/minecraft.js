@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const config = require('../config.js');
+const config = require('../botConfig.js');
 module.exports.run = async (bot,message) => {
 
     let {body} = await superagent.get(`https://api.tenor.com/v1/random?q=minecraft&key=${config.tenorAPI}`)
