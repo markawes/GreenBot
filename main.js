@@ -276,7 +276,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         now = Date.now(),
         timeLimit = 3000,
         limit = bot.ratelimits.get(message.author.id);
-    if(!command.startsWith(botConfig.prefix)) return; //if a command does not start with the prefix, do nothing
+    if(!command.toLowerCase().startsWith(botConfig.prefix.toLowerCase())) return; //if a command does not start with the prefix, do nothing
  
     if(limit != null) {
         if(limit >= now - timeLimit) {
@@ -288,9 +288,9 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
     } else {
         bot.ratelimits.set(message.author.id, now);
     }
-    let cmd = bot.commands.get(command.slice(prefix.length));
+    let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
-	bot.log(bot, message, command.slice(prefix.length), args)
+	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
 	cmd.run(bot, message, args)
     }
 });
