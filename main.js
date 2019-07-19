@@ -237,7 +237,7 @@ bot.on('message', async message => {
             .setColor(`#FF0000`)
             .setTitle(`Woah there.. slow down..`)
             .setDescription(`Try again in ${(Math.abs((now - limit) - timeLimit) / 1000).toFixed(2)} seconds.`)
-            return message.channel.send(timeout).then(m => m.delete(5000));
+            return message.channel.send(timeout).then(m => m.delete(15000));
         } else {
             bot.ratelimits.set(message.author.id, now);
         }
