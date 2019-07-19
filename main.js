@@ -250,6 +250,7 @@ bot.on('message', async message => {
 	}else{
 	cmdslice = command.slice(2)
 	};
+	console.log(`Command: ${cmdslice}`)
     let cmd = bot.commands.get(cmdslice);
     if(cmd){
 	bot.log(bot, message, cmd.name, args)
