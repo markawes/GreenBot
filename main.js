@@ -189,7 +189,7 @@ bot.on('message', async message => {
         case "penguin":
         message.channel.send('🐧')
         break;
-        case "prefix":
+        case "g!prefix":
       message.channel.send({embed: {title: "My prefix", description: botConfig.prefix, color: message.member.displayColor, timestamp: new Date()}})
         break;
         case "penguins":
