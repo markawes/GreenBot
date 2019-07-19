@@ -244,16 +244,9 @@ bot.on('message', async message => {
     } else {
         bot.ratelimits.set(message.author.id, now);
     }
-	let cmdslice;
-	if(command.startsWith(" ")){
-	cmdslice = command.slice(3)
-	}else{
-	cmdslice = command.slice(2)
-	};
-	console.log(`Command: ${cmdslice}`)
-    let cmd = bot.commands.get(cmdslice);
+ let cmd = bot.commands.get(command.toLowerCase().slice(botConfig.prefix.length));
     if(cmd){
-	bot.log(bot, message, cmd.name, args)
+	bot.log(bot, message, command.toLowerCase().slice(botConfig.prefix.length), args)
 	cmd.run(bot, message, args)
     }
 });
