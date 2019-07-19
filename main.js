@@ -6,8 +6,8 @@ const {Client, Collection, RichEmbed} = require('discord.js'),
       sexy = require('chalk'),
       moment = require('moment'),
       banished = require('./classes/noGreenBot4u.json'),
-    //   DBL = require("dblapi.js"),
-    //   dbl = new DBL(process.env.dblkey, bot),
+      DBL = require("dblapi.js"),
+      dbl = new DBL(process.env.dblkey, bot),
       verifLevels = ["None", "Low, must have verified email on account", "Medium - must be registered on Discord for longer than 5 minutes", "High -  (╯°□°）╯︵ ┻━┻ - must be a member of the server for longer than 10 minutes", "Very High - ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻ - must have a verified phone number"];
 bot.odevs = botConfig.ownerDev
 bot.commands = new Collection(); //for commands
@@ -21,7 +21,7 @@ bot.log = async function(bot, message, command, args){
         .setTimestamp()
 	.setColor(message.guild ? message.member.displayColor : `#FF0000`)
 	args ? e.setDescription(args.join(" ")) : null;
-      bot.channels.get('601155205353963560').send(e)
+      bot.channels.get('530923952412033044').send(e)
     }catch(e){console.log(`Command Log ERROR: ${e.stack}`)}
 };
 bot.error = async function(bot, title, error){
@@ -36,7 +36,7 @@ bot.error = async function(bot, title, error){
          return process.exit(1)
       }, 1500)
       }
-   try{bot.channels.get('601155205353963560').send(e)}catch(e){}
+   try{bot.channels.get('567115961379979269').send(e)}catch(e){}
 }
 bot.owner = "188861825100677120";
 fs.readdir("./commands/", (err, files) => {
@@ -54,8 +54,8 @@ bot.on('ready', () => {
       console.log((`Bot Account: ${bot.user.tag}\nBot ID: ${bot.user.id}\nServer Count: ${bot.guilds.size}\nEmoji Count: ${bot.emojis.size}\nChannel Count: ${bot.channels.size}\nUser Count: ${bot.users.size}\nI am ready!`));
       bot.user.setPresence({status: "online", game: {name: "g!help | For Help Join GreenBots Support Server https://discord.gg/YGMcEQ3 | Sub To GreenBots Youtube Channel !Greenbotyt", type: "STREAMING", url: "https://www.twitch.tv/greensapenguin"}})
 });
-// dbl.on('posted', () => console.log('Server count posted!'))
-// dbl.on('error', e => console.log(`Oops! ${e}`))
+dbl.on('posted', () => console.log('Server count posted!'))
+dbl.on('error', e => console.log(`Oops! ${e}`))
 bot.on("guildCreate", async guild => {
       if(guild.available == true){ 
       console.log(`[Server Joined]: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`)
