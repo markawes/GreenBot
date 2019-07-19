@@ -246,9 +246,9 @@ bot.on('message', async message => {
     }
 	let cmdslice;
 	if(command.startsWith(" ")){
-	   cmdslice = command.slice(prefix.length + 1)
+	cmdslice = command.slice(3)
 	}else{
-	cmdslice = command.slice(prefix.length)
+	cmdslice = command.slice(2)
 	};
     let cmd = bot.commands.get(cmdslice);
     if(cmd){
