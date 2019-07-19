@@ -6,8 +6,8 @@ const {Client, Collection, RichEmbed} = require('discord.js'),
       sexy = require('chalk'),
       moment = require('moment'),
       banished = require('./classes/noGreenBot4u.json'),
-      DBL = require("dblapi.js"),
-      dbl = new DBL(process.env.dblkey, bot),
+    //   DBL = require("dblapi.js"),
+    //   dbl = new DBL(process.env.dblkey, bot),
       verifLevels = ["None", "Low, must have verified email on account", "Medium - must be registered on Discord for longer than 5 minutes", "High -  (╯°□°）╯︵ ┻━┻ - must be a member of the server for longer than 10 minutes", "Very High - ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻ - must have a verified phone number"];
 bot.odevs = botConfig.ownerDev
 bot.commands = new Collection(); //for commands
@@ -21,13 +21,14 @@ bot.log = async function(bot, message, command, args){
         .setTimestamp()
 	.setColor(message.guild ? message.member.displayColor : `#FF0000`)
 	args ? e.setDescription(args.join(" ")) : null;
-      bot.channels.get('530923952412033044').send(e)
+      bot.channels.get('601155205353963560').send(e)
     }catch(e){console.log(`Command Log ERROR: ${e.stack}`)}
 };
 bot.error = async function(bot, title, error){
     console.log(`[${title}] - ${error}`)
     let e = new RichEmbed()
     .setTitle(title)
+    .setColor(`#FF0000`)
     .setDescription(`\`\`\`js\n${error}\`\`\``)
     if(title === "Uncaught Execption"){
       e.setFooter(`Process will exit in a few seconds.`)
@@ -35,7 +36,7 @@ bot.error = async function(bot, title, error){
          return process.exit(1)
       }, 1500)
       }
-   try{bot.channels.get('567115961379979269').send(e)}catch(e){}
+   try{bot.channels.get('601155205353963560').send(e)}catch(e){}
 }
 bot.owner = "188861825100677120";
 fs.readdir("./commands/", (err, files) => {
@@ -50,11 +51,11 @@ fs.readdir("./commands/", (err, files) => {
 });
  
 bot.on('ready', () => {
-      console.log(sexy.white.bgGreen.bold(`Bot Account: ${bot.user.tag}\nBot ID: ${bot.user.id}\nServer Count: ${bot.guilds.size}\nEmoji Count: ${bot.emojis.size}\nChannel Count: ${bot.channels.size}\nUser Count: ${bot.users.size}\nI am ready!`));
+      console.log((`Bot Account: ${bot.user.tag}\nBot ID: ${bot.user.id}\nServer Count: ${bot.guilds.size}\nEmoji Count: ${bot.emojis.size}\nChannel Count: ${bot.channels.size}\nUser Count: ${bot.users.size}\nI am ready!`));
       bot.user.setPresence({status: "online", game: {name: "g!help | For Help Join GreenBots Support Server https://discord.gg/YGMcEQ3 | Sub To GreenBots Youtube Channel !Greenbotyt", type: "STREAMING", url: "https://www.twitch.tv/greensapenguin"}})
 });
-dbl.on('posted', () => console.log('Server count posted!'))
-dbl.on('error', e => console.log(`Oops! ${e}`))
+// dbl.on('posted', () => console.log('Server count posted!'))
+// dbl.on('error', e => console.log(`Oops! ${e}`))
 bot.on("guildCreate", async guild => {
       if(guild.available == true){ 
       console.log(`[Server Joined]: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`)
@@ -175,6 +176,7 @@ bot.on('message', async message => {
 }
    switch(message.content.toLowerCase()){
        case "master":
+            if(message.guild.id === "264445053596991498") return;
        message.channel.send(`**${bot.users.get(bot.owner).tag} is my Master**`)
        bot.log(bot, message, 'Master')
        break;
@@ -183,38 +185,44 @@ bot.on('message', async message => {
        message.channel.send("So.... you want me to run a command... well tell me which one noob, I'm not physic!");
        break;
        case "g!greenbotyt":
+            if(message.guild.id === "264445053596991498") return;
        message.channel.send("https://www.youtube.com/channel/UCzr7PNj3mMUE1uRRcM-tw5g");
         bot.log(bot, message, "g!GreenBotYT");
         break;
         case "penguin":
+                if(message.guild.id === "264445053596991498") return;
         message.channel.send('🐧')
         break;
-        case "g!prefix":
-      message.channel.send({embed: {title: "My prefix", description: botConfig.prefix, color: message.member.displayColor, timestamp: new Date()}})
-        break;
         case "penguins":
+                if(message.guild.id === "264445053596991498") return;
         message.channel.send('🐧🐧🐧')
         break;
         case "greenbot":
+                if(message.guild.id === "264445053596991498") return;
         message.channel.send(`💚${message.author.username} loves GreenBot 💚`);
         break;
         case "g!noots":
+                if(message.guild.id === "264445053596991498") return;
         message.channel.send("http://noots.greensapenguin.com/");
         bot.log(bot, message, "g!noots")
         break;
         case "g!pingu":
+                if(message.guild.id === "264445053596991498") return;
         bot.log(bot, message, "g!pingu")
         message.channel.send("**Noot Noot**");
         break;
         case "g!lb":
+                if(message.guild.id === "264445053596991498") return;
         bot.log(bot, message, "g!lb")
         message.channel.send("http://littlebitch.greensapenguin.com/");
         break;
         case "g!penguintypes":
+                if(message.guild.id === "264445053596991498") return;
         bot.log(bot, message, "penguintypes")
         message.channel.send("**List of Penguin Species** https://www.birdlife.org/worldwide/news/list-penguin-species");
         break;
         case "g!penguinvideo":
+                if(message.guild.id === "264445053596991498") return;
         bot.log(bot, message, "g!penguinvideo")
         message.channel.send("**penguins are bae** https://www.youtube.com/watch?v=c7M686pXr6M");
         break;
@@ -222,14 +230,11 @@ bot.on('message', async message => {
     if(message.content.toLowerCase().includes("cookies") && message.guild.id == "389472576235372565") {
         message.channel.send("https://tenor.com/YM4e.gif")
      }
-//     if(message.isMentioned(bot.user.id) && message.content.toLowerCase().includes('prefix')) return message.channel.send(`I heard the word \`prefix\` My prefix is \`${botConfig.prefix}\` use \`g!help\` to get started`);
-    let messageArray = message.content.split(/\s+/g),
-        command = messageArray[0].replace(/<@?!?432267856869064704>/g, botConfig.prefix.toLowerCase()),
-        args = messageArray.slice(1),
-        now = Date.now(),
+    let now = Date.now(),
         timeLimit = 3000,
         limit = bot.ratelimits.get(message.author.id);
-    if(!command.toLowerCase().startsWith(botConfig.prefix.toLowerCase())) return;
+        let commands = await message.content.replace(`<@${bot.user.id}>`, prefix.toLowerCase()).replace(`<@!${bot.user.id}>`, prefix.toLowerCase()).replace(' ', '');
+    if(!commands.toLowerCase().startsWith(prefix.toLowerCase())) return;
     if(limit != null) {
         if(limit >= now - timeLimit) {
             message.delete();
@@ -244,11 +249,15 @@ bot.on('message', async message => {
     } else {
         bot.ratelimits.set(message.author.id, now);
     }
- let cmd = bot.commands.get(command.toLowerCase().slice(botConfig.prefix.length));
-    if(cmd){
-	bot.log(bot, message, command.toLowerCase().slice(botConfig.prefix.length), args)
-	cmd.run(bot, message, args)
-    }
+    if(commands.toLowerCase().startsWith(prefix.toLowerCase())){
+        let args = commands.slice(prefix.length).split(/ +/g);
+        let cmd = args.shift().toLowerCase();
+        let commandfile = bot.commands.get(cmd);
+        if (commandfile){
+            bot.log(bot, message, commandfile.help.name, args)
+            commandfile.run(bot, message, args)
+        }
+   }
 });
 bot.login(botConfig.GreenLogin);
 process.on('unhandledRejection', error => bot.error(bot, "Unhandled Rejection" , error.stack))
