@@ -224,7 +224,7 @@ bot.on('message', async message => {
      }
 //     if(message.isMentioned(bot.user.id) && message.content.toLowerCase().includes('prefix')) return message.channel.send(`I heard the word \`prefix\` My prefix is \`${botConfig.prefix}\` use \`g!help\` to get started`);
     let messageArray = message.content.split(/\s+/g),
-        command = messageArray[0].replace(/<@?!?432267856869064704>/g, botConfig.prefix.toLowerCase()),
+        command = messageArray[0].replace(/<@?!?432267856869064704>\s/gm, botConfig.prefix.toLowerCase()),
         args = messageArray.slice(1),
         now = Date.now(),
         timeLimit = 3000,
