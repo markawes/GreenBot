@@ -224,7 +224,7 @@ bot.on('message', async message => {
      }
 //     if(message.isMentioned(bot.user.id) && message.content.toLowerCase().includes('prefix')) return message.channel.send(`I heard the word \`prefix\` My prefix is \`${botConfig.prefix}\` use \`g!help\` to get started`);
     let messageArray = message.content.split(/\s+/g),
-        command = messageArray[0].replace(/<@?!?432267856869064704>/g, botConfig.prefix.toLowerCase()).replace(/ /g, ''),
+        command = messageArray[0].replace(/<@?!?432267856869064704>/g, botConfig.prefix.toLowerCase()),
         args = messageArray.slice(1),
         now = Date.now(),
         timeLimit = 3000,
@@ -244,9 +244,15 @@ bot.on('message', async message => {
     } else {
         bot.ratelimits.set(message.author.id, now);
     }
-    let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
+	let cmdslice;
+	if(command.startsWith(" ")){
+	   cmdslice = command.slice(prefix.length + 1)
+	}else{
+	cmdslice = command.slice(prefix.length)
+	};
+    let cmd = bot.commands.get(cmdslice);
     if(cmd){
-	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
+	bot.log(bot, message, cmd.name, args)
 	cmd.run(bot, message, args)
     }
 });
