@@ -89,7 +89,7 @@ dbl.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send
 bot.on("guildCreate", async guild => {
     if(guild.available == true){ 
     console.log(`[Server Joined]: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`)
- const embed = new RichEmbed()
+ const embed = new Discord.RichEmbed()
  .setColor(`#FF000`)
  .setTitle(`Server Joined${guild.large ? " - Large Server" : ""}`)
  .setTimestamp()
@@ -135,7 +135,7 @@ bot.on("guildCreate", async guild => {
 bot.on("guildDelete", guild => {
 if(guild.available == true) {
   console.log(`[Server Left]: ${guild.name} (id: ${guild.id}). This guild had ${guild.memberCount} members!`);
-  const embed = new RichEmbed()
+  const embed = new Discord.RichEmbed()
   .setColor(`#FF0000`)
   .setTitle(`Server Left${guild.large ? " - Large Server" : ""}`)
   .setTimestamp()
@@ -275,7 +275,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         if(limit >= now - timeLimit) {
             message.delete();
             message.delete();
-            let timeout = new RichEmbed()
+            let timeout = new Discord.RichEmbed()
             .setColor(`#FF0000`)
             .setTitle(`Woah there.. slow down..`)
             .setDescription(`Try again in ${(Math.abs((now - limit) - timeLimit) / 1000).toFixed(2)} seconds.`)
