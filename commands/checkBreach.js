@@ -1,6 +1,6 @@
 const CheckDB = require("snekfetch");
 exports.run = async (bot, message, args) => {
-    message.reply(`Sorry.. this command is currently borked.. and has been disabled by one of the bot devs.`)
+    return message.reply(`Sorry.. this command is currently borked.. and has been disabled by one of the bot devs.`)
     if(!args[0]) return message.reply("Please provide an e-mail address to check");
     await message.delete(300).catch(o_O => {});
     let {body} = await CheckDB.get(`https://haveibeenpwned.com/api/v2/breachedaccount/${args[0]}`);
