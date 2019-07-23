@@ -7,7 +7,7 @@ exports.run = async (bot, message, args) => {
     let out = ` Unfortunatly breaches have been found for: **${args[0]}**, we suggest you check this and take measures to secure your accounts\n`;
     let po = 0;
     const format = body.forEach(i => {po++;out += `\n**${po}.** \`${i.Name}\` breached on: **${i.BreachDate}**`})
-    message.reply(out, {split: true}).catch(o_O => {})
+    message.channel.send(out, {split: true}).catch(o_O => {})
    }catch(e){
 return message.reply(`Upon checking the database no results were found for \`\`${args[0]}\`\` this is good news! :thumbsup:`)
    }
