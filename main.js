@@ -58,7 +58,11 @@ fs.readdir("./commands/", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
- 
+bot.on("error", async (error) => {
+    let err = await error.stack;
+    if(err === "undefined") return null;
+bot.error(bot, "Event: Error", err)
+})
 bot.on('ready', () => {
   //console.log(sexy.white.bgGreen.bold(`Greensanoob is online! and logged in as ${bot.user.username}`)); //if this ever shows anything else but GreenBot then shut it down and tell me
   console.log(sexy.white.bgGreen.bold(`
