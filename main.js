@@ -32,7 +32,12 @@ bot.error = async function(bot, title, error){
     console.log(`[${title}] - ${error}`)
     let e = new Discord.RichEmbed()
     .setTitle(title)
-    .setDescription(error)
+    .setColor(0xFF0000)
+    .setDescription(`\`\`\`js\n${error}\`\`\``)
+    if(title === "Uncaught Execption"){
+    e.addField(`NOTICE`, `Process will be ending.. due to the uncaught execption!`);
+    setTimeout(async () => {return process.exit(1)}, 2000)
+    }
    try{bot.channels.get('567115961379979269').send(e)}catch(e){}
 }
 bot.owner = "188861825100677120";
