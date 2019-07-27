@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 let users = ['188861825100677120', '272442568275525634', '288450828837322764']; // Users who can do the "g!botcheck" command
 let ignore = ["264445053596991498"]; // Ignore servers like DBL.. 
+const {post} = require("superagent");
 module.exports.run = async (bot, message) => {
       if(!users.includes(message.author.id)) return message.react("❌")
       let servers = [];
@@ -8,9 +9,16 @@ module.exports.run = async (bot, message) => {
         let e = new Discord.RichEmbed()
         .setColor("#008000")
         if(servers.length !== 0){
+        if(servers.join(" ").length >= 2040){
+        let {body} = await post(`https://sourceb.in/api/bin`).send(`${servers.join("\n\n")}`); 
+        let link = `https://sourceb.in/${body.key}.txt`
         e.setTitle(`Servers: [${servers.length}]`)
-        .setDescription(servers.join('\n\n'))
+        .setDescription(link)
+        }else{
+        e.setTitle(`Servers: [${servers.length}]`)
+        .setDescription(servers.join("\n\n"))
         return message.channel.send(e)
+        }
         }else{
         e.setTitle(`Servers: [0]`)
         .setDescription(`No servers have 80% more bots than humans`)
