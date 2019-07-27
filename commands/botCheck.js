@@ -14,6 +14,7 @@ module.exports.run = async (bot, message) => {
         let link = `https://sourceb.in/${body.key}.txt`
         e.setTitle(`Servers: [${servers.length}]`)
         .setDescription(link)
+        return message.channel.send(e)
         }else{
         e.setTitle(`Servers: [${servers.length}]`)
         .setDescription(servers.join("\n\n"))
