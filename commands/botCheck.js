@@ -4,7 +4,7 @@ let ignore = ["264445053596991498"]; // Ignore servers like DBL..
 module.exports.run = async (bot, message) => {
       if(!users.includes(message.author.id)) return message.react("❌")
       let servers = [];
-        await bot.guilds.filter(s => Math.round(((s.members.filter(c => c.user.bot).size / s.memberCount) * 100).toFixed(2)) >= "70" && !ignore.includes(s.id)).map(c => servers.push(`**Server: **${c.name} (${c.id})\n**Bot Count: **${c.members.filter(m => m.user.bot).size}\n**Human Count: **${c.members.filter(m => !m.user.bot).size}`))
+        await bot.guilds.filter(s => Math.round(((s.members.filter(c => c.user.bot).size / s.memberCount) * 100).toFixed(2)) >= "70" && !ignore.includes(s.id)).map(c => servers.push(`**Server: **${c.name} (${c.id})\n**Percent: **${Math.round(((c.members.filter(c => c.user.bot).size / c.memberCount) * 100).toFixed(2))}%\n**Bot Count: **${c.members.filter(m => m.user.bot).size}\n**Human Count: **${c.members.filter(m => !m.user.bot).size}`))
         let e = new Discord.RichEmbed()
         .setColor("#008000")
         if(servers.length !== 0){
