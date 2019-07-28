@@ -34,6 +34,7 @@ bot.log = async function(bot, message, command, args){
     }catch(e){console.log(`Command Log ERROR: ${e.stack}`)}
 };
 bot.error = async function(bot, title, error){
+    if(error.includes("DiscordAPIError: Unknown Message")) return null;
     console.log(`[${title}] - ${error}`)
     let e = new Discord.RichEmbed()
     .setTitle(title)
