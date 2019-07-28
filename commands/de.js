@@ -1,6 +1,5 @@
 const Discord = require("discord.js")
 const superagent = require("superagent")
-const config = require("../../config.json");
 const DEmojiJS = require("demojijs")
 module.exports.run = async (bot, message, args) => {
 if(!message.channel.nsfw) return message.channel.send("Please run this command in an NSFW channel as it could show naughty emotes!")
