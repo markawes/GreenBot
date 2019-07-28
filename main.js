@@ -5,6 +5,11 @@ const Discord = require('discord.js'),
       prefix = botConfig.prefix,
       sexy = require('chalk'),
       banished = require('./classes/noGreenBot4u.json'),   
+      bypass = [
+	      "188861825100677120", // GreensaPenguin
+	      '272442568275525634', // Markawes
+	      "288450828837322764" // SUPERCHIEFYT
+      ],
       moment = require("moment"),
       verifLevels = [
     "None",
@@ -287,7 +292,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         timeLimit = 3000,
         limit = bot.ratelimits.get(message.author.id);
     if(!command.toLowerCase().startsWith(botConfig.prefix.toLowerCase())) return; //if a command does not start with the prefix, do nothing
- 
+   if(!bypass.includes(message.author.id)){
     if(limit != null) {
         if(limit >= now - timeLimit) {
             message.delete();
@@ -303,6 +308,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
     } else {
         bot.ratelimits.set(message.author.id, now);
     }
+   }
     let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
 	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
