@@ -22,6 +22,7 @@
     "relevant-urban": "^2.0.0",
     "superagent": "^5.1.0",
     "twit": "^2.2.9",
-    "urban": "^0.3.1"
+    "urban": "^0.3.1",
+    "demojijs": "^1.2.0"
   }
 }
