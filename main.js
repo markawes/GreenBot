@@ -344,8 +344,10 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
    }
 	let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
+	try{
 	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
 	cmd.run(bot, message, args).catch(err => bot.cmdError(bot, message, command.toLowerCase().slice(prefix.length), err.stack, err))
+	}catch(err){}
     }
 });
  
