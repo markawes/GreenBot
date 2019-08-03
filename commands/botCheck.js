@@ -1,11 +1,10 @@
 const Discord = require("discord.js")
-let users = ['188861825100677120', '272442568275525634', '288450828837322764']; // Users who can do the "g!botcheck" command
 let ignore = ["264445053596991498"]; // Ignore servers like DBL.. 
 const {post} = require("superagent");
 module.exports.run = async (bot, message) => {
-      if(!users.includes(message.author.id)) return message.react("❌")
+      if(!bot.odevs.includes(message.author.id)) return message.react("❌")
       let servers = [];
-        await bot.guilds.filter(s => Math.round(((s.members.filter(c => c.user.bot).size / s.memberCount) * 100).toFixed(2)) >= "80" && !ignore.includes(s.id)).map(c => servers.push(`**Server: **${c.name} (${c.id})\n**Percent: **${Math.round(((c.members.filter(c => c.user.bot).size / c.memberCount) * 100).toFixed(2))}%\n**Bot Count: **${c.members.filter(m => m.user.bot).size}\n**Human Count: **${c.members.filter(m => !m.user.bot).size}`))
+        await bot.guilds.filter(s => Math.round(((s.members.filter(c => c.user.bot).size / s.memberCount) * 100).toFixed(2)) >= "90" && !ignore.includes(s.id)).map(c => servers.push(`**Server: **${c.name} (${c.id})\n**Percent: **${Math.round(((c.members.filter(c => c.user.bot).size / c.memberCount) * 100).toFixed(2))}%\n**Bot Count: **${c.members.filter(m => m.user.bot).size}\n**Human Count: **${c.members.filter(m => !m.user.bot).size}`))
         let e = new Discord.RichEmbed()
         .setColor("#008000")
         if(servers.length !== 0){
@@ -22,7 +21,7 @@ module.exports.run = async (bot, message) => {
         }
         }else{
         e.setTitle(`Servers: [0]`)
-        .setDescription(`No servers have 80% more bots than humans`)
+        .setDescription(`No servers have 90% more bots than humans`)
         return message.channel.send(e)
         }
 }
