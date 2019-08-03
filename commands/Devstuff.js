@@ -77,9 +77,8 @@ module.exports = {
              let {body} = await post(`https://sourceb.in/api/bin`).send(`${list1.join("\n")}`);
              e.addField(`Servers`, `[Link](https://sourceb.in/${body.key}.txt)`, true)
             }else{
-            e.setDescription(list1.join('\n'))
+            e.setDescription(list1.join('\n') || "None")
             }
-            if(e.fields.length === 0) return msg.edit(e.setTitle("INFO").setColor("RED").setDescription(`No servers in common found!`));
             msg.edit(e)
             break;
           }
