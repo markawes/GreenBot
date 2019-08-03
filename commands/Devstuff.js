@@ -60,37 +60,37 @@ module.exports = {
             let list1 = [], list2 = [], list3 = [], list4 = [], list5 = [], list6 = [], overflow = [];
             await server.forEach(async guild => {
                 let member = await guild.members.get(user.id);
-                if(list1 !== 5){
+                if(list1 !== 3){
                     list1.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list2 !== 5){
+                if(list2 !== 3){
                     list2.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list3 !== 5){
+                if(list3 !== 3){
                     list3.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list4 !== 5){
+                if(list4 !== 3){
                     list4.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list5 !== 5){
+                if(list5 !== 3){
                     list5.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list6 !== 5){
+                if(list6 !== 3){
                     list6.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
@@ -105,6 +105,7 @@ module.exports = {
             e.setAuthor(`@${user.tag} (${user.id})`, user.displayAvatarURL)
             .setTitle(`Servers Found`)
             .setTimestamp()
+            
             if(list1.length !== 0) e.addField(`\u200b`, list1.join('\n'), true)
             if(list2.length !== 0) e.addField(`\u200b`, list2.join('\n'), true)
             if(list3.length !== 0) e.addField(`\u200b`, list3.join('\n'), true)
