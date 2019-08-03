@@ -64,7 +64,6 @@ module.exports = {
                 if(list1 !== 5){
                     list1.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
                 if(list2 !== 5){
