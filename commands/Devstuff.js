@@ -57,48 +57,43 @@ module.exports = {
             if(!user) return msg.edit(e.setTitle(`Invalid User`).setDescription("User Not Found").setColor("RED"));
             let server = bot.guilds.filter(c => c.members.get(user.id));
             if(server.size === 0) return msg.edit(e.setTitle(`INFO`).setColor("RED").setDescription(`Can't find any servers with \`@${user.tag}\``));
-            let list1 = [], list2 = [], list3 = [], list4 = [], list5 = [], list6 = [], overflow = [];
+            let list1 = [], list2 = [], list3 = [], list4 = [], list5 = [], list6 = [], overflow = [], roles = [];
             await server.forEach(async guild => {
                 let member = await guild.members.get(user.id);
-                if(list1 !== 3){
+                roles.push(`**__${guild.name}__** (${guild.id})\n- Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}`)
+                if(list1 !== 5){
                     list1.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
                     - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list2 !== 3){
+                if(list2 !== 5){
                     list2.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list3 !== 3){
+                if(list3 !== 5){
                     list3.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list4 !== 3){
+                if(list4 !== 5){
                     list4.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list5 !== 3){
+                if(list5 !== 5){
                     list5.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else
-                if(list6 !== 3){
+                if(list6 !== 5){
                     list6.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 }else{
                     overflow.push(`
                     **__${guild.name}__**${member.id === guild.ownerID ? "\n- Owner: Yes" :""}${member.hasPermission('ADMINISTRATOR') ? "\n- Administrator: Yes" : ""}${member.hasPermission("MANAGE_GUILD") ? "\n- Admin: Yes" : ''}${member.hasPermission(['MANAGE_MESSAGES', "BAN_MEMBERS", "KICK_MEMBERS"]) ? "\n- Mod: Yes" : ""}${member.nickname ? `\n- Nick: ${member.nickname}` : ""}
-                    - Roles: ${member.roles.filter(c => c.id !== guild.id).sort((a, b) => b.position - a.position).map(c => c.name).slice(0, 10).join(', ') || "None"}
                     `)
                 };
             });
@@ -115,6 +110,10 @@ module.exports = {
             if(overflow.length !== 0){
                 let {body} = await post(`https://sourceb.in/api/bin`).send(`${overflow.join("\n")}`);
                 e.addField(`Overflow`, `[Link](https://sourceb.in/${body.key}.txt)`, true)
+            }
+            if(roles.length !== 0){
+                let {body} = await post(`https://sourceb.in/api/bin`).send(`${roles.join("\n")}`);
+                e.addField(`Roles`, `[Link](https://sourceb.in/${body.key}.txt)`, true)
             }
             if(e.fields.length === 0) return msg.edit(e.setTitle("INFO").setColor("RED").setDescription(`No servers in common found!`));
             msg.edit(e)
