@@ -18,6 +18,12 @@ const Discord = require('discord.js'),
     "High: (╯°□°）╯︵ ┻━┻ - must be a member of the server for longer than 10 minutes",
     "Very High: ┻━┻ミヽ(ಠ益ಠ)ﾉ彡┻━┻ - must have a verified phone number"
     ];
+bot.webhook = async function(url, embed){
+  	if(!embed || embed === null || embed === undefined) return `[Webhook Function] - Error, you need to provide content or an embed!` 
+        let link = await url.replace('https://discordapp.com/api/webhooks/', '').split("/")
+        let hook = new Discord.WebhookClient(link[0], link[1]);
+        return hook.send(embed).catch(o_O => {console.log(`Can't send a message through: ${url}`)})
+}
 bot.odevs = botConfig.ownerDev
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
@@ -35,6 +41,7 @@ try{
 	**Channel: **${message.channel} \`#${message.channel.name}\` (${message.channel.id})
 	**User: **${message.author} \`@${message.author.tag}\` (${message.author.id})
 	`)
+	bot.webhook(process.env.cmdErrors, ce)
 }catch(err){
 console.log(`[cmdError] - ${err.stack}`)
 }
