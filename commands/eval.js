@@ -5,7 +5,7 @@ const Discord = module.require("discord.js");
 //const moment = require("moment")
 module.exports.run = async (bot, message, args) => { 
    
-      if(message.author.id !== botConfig.ownerDev) return message.react("393617452992430080");
+      if(!bot.odevs.includes(message.author.id)) return message.react("393617452992430080");
       //message.delete();
 const arg = message.content.split(" ").slice(1);
 const clean = text => {
