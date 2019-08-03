@@ -53,6 +53,7 @@ module.exports = {
             const user = await bot.fetchUser(message.mentions.users.first() ? message.mentions.users.first().id : args[1] ? args[1] : message.author.id).catch(err => {
             return msg.edit(e.setTitle(`Invalid User`).setDescription("User Not Found").setColor("RED"));
             })
+            if(await e.title === "Invalid User") return null;
             if(!user) return msg.edit(e.setTitle(`Invalid User`).setDescription("User Not Found").setColor("RED"));
             let server = bot.guilds.filter(c => c.members.get(user.id));
             if(server.size === 0) return msg.edit(e.setTitle(`INFO`).setColor("RED").setDescription(`Can't find any servers with \`@${user.tag}\``));
