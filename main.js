@@ -169,9 +169,9 @@ bot.on("guildCreate", async guild => {
  ${moment(guild.createdAt).format('dddd, MMMM Do YYYY, h:mm:ssa')}
  `)
  .addField(`Owner`, `${guild.owner.user.tag} (\`${guild.owner.user.id}\`)`)
- let percent = Math.round(((guild.members.filter(c => c.user.bot).size / guild.memberCount) * 100).toFixed(2)) >= "80"
+ let percent = Math.round(((guild.members.filter(c => c.user.bot).size / guild.memberCount) * 100).toFixed(2)) >= "90"
  if(percent){
-       embed.addField(`Warning`, `This server is 80% a bot server.`)
+       embed.addField(`Warning`, `This server is 90% a bot server.`)
  }
    bot.channels.get('526573436818948107').send(embed).catch(o_O => {})
   if(banished.includes(guild.id)) {
