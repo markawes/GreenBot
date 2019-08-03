@@ -32,8 +32,8 @@ try{
 	let ce = new Discord.RichEmbed()
 	.setAuthor(bot.user.tag, bot.user.displayAvatarURL)
 	.setColor(`#FF0000`)
-	.setTitle(`Command "${command}" Error`)
-	.setDescription(error)
+	.setTitle(`Command "**${command}**" Error`)
+	.setDescription(`\`\`\`js\n${error}\`\`\``)
 	.setTimestamp()
 	.setFooter(`Reported At`)
 	.addField(`INFO`, `
