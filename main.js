@@ -27,8 +27,15 @@ bot.webhook = async function(url, embed){
 bot.odevs = botConfig.ownerDev
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
-bot.cmdError = async function(bot, message, command, error){
+bot.cmdError = async function(bot, message, command, error, smallerror = null){
 try{
+	if(smallerror !== null){
+	if(message.channel.permissionsFor(message.guild.me).has(["SEND_MESSAGES", "READ_MESSAGES"])){
+	message.channel.send(`Command Error: \`\`\`js\n${smallerror}\`\`\``).catch(o_O => {})
+	}else{
+	message.author.send(`Command Error: \`\`\`js\n${smallerror}\`\`\``).catch(o_O => {});
+	}
+	}
 	let ce = new Discord.RichEmbed()
 	.setAuthor(bot.user.tag, bot.user.displayAvatarURL)
 	.setColor(`#FF0000`)
@@ -338,7 +345,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 	let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
 	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
-	cmd.run(bot, message, args).catch(err => bot.cmdError(bot, message, command.toLowerCase().slice(prefix.length), err.stack))
+	cmd.run(bot, message, args).catch(err => bot.cmdError(bot, message, command.toLowerCase().slice(prefix.length), err.stack, err))
     }
 });
  
