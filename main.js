@@ -21,6 +21,24 @@ const Discord = require('discord.js'),
 bot.odevs = botConfig.ownerDev
 bot.commands = new Discord.Collection(); //for commands
 bot.ratelimits = new Discord.Collection(); // create collection of rate limit
+bot.cmdError = async function(bot, message, command, error){
+try{
+	let ce = new Discord.RichEmbed()
+	.setAuthor(bot.user.tag, bot.user.displayAvatarURL)
+	.setColor(`#FF0000`)
+	.setTitle(`Command "${command}" Error`)
+	.setDescription(error)
+	.setTimestamp()
+	.setFooter(`Reported At`)
+	.addField(`INFO`, `
+	**Server: **${message.guild.name} (${message.guild.id})
+	**Channel: **${message.channel} \`#${message.channel.name}\` (${message.channel.id})
+	**User: **${message.author} \`@${message.author.tag}\` (${message.author.id})
+	`)
+}catch(err){
+console.log(`[cmdError] - ${err.stack}`)
+}
+}
 bot.log = async function(bot, message, command, args){
     try{
         let e = new Discord.RichEmbed()
@@ -313,7 +331,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 	let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
 	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
-	cmd.run(bot, message, args)
+	cmd.run(bot, message, args).catch(err => bot.cmdError(bot, message, command.toLowerCase().slice(prefix.length), err.stack))
     }
 });
  
