@@ -318,7 +318,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 	}catch(err){
 	if(err){
 	if(err.stack.includes("DiscordAPIError: Missing Permissions")){
-	if(message.channel.permissionFor(message.guild.me).has(["SEND_MESSAGES", "READ_MESSAGES", "READ_MESSAGE_HISTROY"])){
+	if(!message.channel.permissionFor(message.guild.me).has(["SEND_MESSAGES", "READ_MESSAGES", "READ_MESSAGE_HISTROY"])){
 	message.channel.send(`Yooo! I don't have the correct permissions to run the command properly!`).catch(o_O => {})
 	}else{
 	message.author.send(`Yo! I don't have permissions in \`#${message.channel.name}\``).catch(o_O => {});
