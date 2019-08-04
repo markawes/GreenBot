@@ -1,6 +1,6 @@
 const {RichEmbed} = require("discord.js");
 module.exports.run = async (bot, message, args) => {
-    if (message.guild.emojis.size === 0) return message.channel.send({embed: {title: `***Sad ${bot.user.username} noise***`, description: "This server has no custom emoji :frowning:", author: {name: `${message.guild.name}`, icon_url: message.guild.iconURL}}});
+    if (message.guild.emojis.size === 0) return message.channel.send({embed: {color: 0xFF0000,title: `***Sad ${bot.user.username} noise***`, description: "This server has no custom emoji :frowning:", author: {name: `${message.guild.name}`, icon_url: message.guild.iconURL}}});
       let normal = [], gif = [];
         await message.guild.emojis.forEach(c => {c.animated ? gif.push(c) : normal.push(c)});
         let e = new RichEmbed()
