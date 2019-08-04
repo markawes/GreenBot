@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
         await message.guild.emojis.forEach(c => {c.animated ? gif.push(c) : normal.push(c)});
         let e = new RichEmbed()
         .setColor(message.member.displayColor)
-        .setAuthor(`Here is a list of all custom emoji here at **${message.guild.name}**`, message.guild.iconURL)
+        .setAuthor(`Here is a list of all custom emoji here at (${message.guild.name})`, message.guild.iconURL)
         .setTimestamp()
         if(normal.join(' ').length >= 1030){
             e.addField(`**__Normal Emojis__**`, normal.slice(0, 25).join(' '))
