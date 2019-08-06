@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
             if(normal.slice(200, 225).join(" ").length !== 0) e.addField(`\u200b`, normal.slice(200, 225).join(" "))
             if(normal.slice(225, 250).join(" ").length !== 0) e.addField(`\u200b`, normal.slice(225, 250).join(" "))
         }else{
-            e.addField(`**__Normal Emojis__**`, normal.join(' '))
+            e.addField(`**__Normal Emojis__**`, normal.join(' ') || "None")
         }
         if(gif.join(' ').length >= 1030){
             e.addField(`**__Animated Emojis__**`, gif.slice(0, 25).join(' '))
@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
             if(gif.slice(200, 225).join(" ").length !== 0) e.addField(`\u200b`, gif.slice(200, 225).join(" "))
             if(gif.slice(225, 250).join(" ").length !== 0) e.addField(`\u200b`, gif.slice(225, 250).join(" "))
         }else{
-            e.addField(`**__Animated Emojis__**`, gif.join(' '))
+            e.addField(`**__Animated Emojis__**`, gif.join(' ') || "None")
         }
         return message.channel.send(e)
 }
