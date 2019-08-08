@@ -236,7 +236,8 @@ bot.on('guildMemberRemove', async (member) => {
 // Create an event listener for messages
 bot.on('message', async message => {
     if(message.author.bot || !message.guild || message.webhookID) return; //stops GreenBot from spamming the prefix when he sees the word "prefix"
-    if(message.guild){
+    if(message.guild.id === "264445053596991498") return null;    
+if(message.guild){
      if(message.member.nickname !== null){ 
     if(message.member.nickname.startsWith("[AFK]")) {
 message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
@@ -267,6 +268,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
     return message.reply("You have been blocked from sending attachments in this server!")
         }
    // Attachment Block End
+ if(message.guild.id !== "264445053596991498"){
    switch(message.content.toLowerCase()){
        case "master":
        message.channel.send(`**${bot.users.get(bot.owner).tag} is my Master**`)
@@ -309,11 +311,13 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!penguinvideo")
         message.channel.send("**penguins are bae** https://www.youtube.com/watch?v=c7M686pXr6M");
         break;
-    }  
+    } 
+ } 
     if(message.content.toLowerCase().includes("cookies") && message.guild.id == "389472576235372565") {
         message.channel.send("https://tenor.com/YM4e.gif")
         //bot.channels.get("530923952412033044").send(`${message.author.tag} has used cookies in ${message.guild.name}`)
      }
+
     if(message.isMentioned(bot.user.id) && message.content.toLowerCase().includes('prefix')) return message.channel.send(`I heard the word \`prefix\` My prefix is \`${botConfig.prefix}\` use \`g!help\` to get started`);
     if(message.author.bot) return; //stops the bot from respoinding to itself
     if(message.channel.type === "dm") return; //make the bot not repsond to commands in DM because why....
@@ -345,6 +349,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
 	let cmd = bot.commands.get(command.toLowerCase().slice(prefix.length));
     if(cmd){
 	try{
+	if(message.guild.id === "264445053596991498") return null;   
 	bot.log(bot, message, command.toLowerCase().slice(prefix.length), args)
 	cmd.run(bot, message, args).catch(err => bot.cmdError(bot, message, command.toLowerCase().slice(prefix.length), err.stack, err))
 	}catch(err){}
