@@ -3,7 +3,7 @@ const pokemonGif = require('pokemon-gif');
 
 module.exports.run = async (bot, message, args) => {
 try{
-        let poke = await pokemonGif(args.join(' ') || Math.floor(Math.random() * 721) + 1)
+        let poke = await pokemonGif(Number(args[0]) ? Number(args[0]) : args.join(' ') || Math.floor(Math.random() * 721) + 1)
         let embed = new Discord.RichEmbed()
         .setImage(poke)
         .setTitle(`Image doesn't load? click here`)
