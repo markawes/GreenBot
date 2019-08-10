@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const pokemonGif = require('pokemon-gif');
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 try{
         let poke = await pokemonGif(args.join(' ') || Math.floor(Math.random() * 721) + 1)
         let embed = new Discord.RichEmbed()
