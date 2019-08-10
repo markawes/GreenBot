@@ -299,6 +299,10 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!pingu")
         message.channel.send("**Noot Noot**");
         break;
+        case "g!boop":
+        message.channel.send("https://tenor.com/view/penguin-hi-jake-the-dog-adventure-time-iboop-you-gif-11669897");
+        bot.log(bot, message, "g!boop")
+        break;
         case "g!twitter":
         bot.log(bot, message, "g!twitter")
         message.channel.send("http://GreenBotTwitter.greensapenguin.com/");
