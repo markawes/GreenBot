@@ -299,7 +299,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!pingu")
         message.channel.send("**Noot Noot**");
         break;
-        case "g!lb":
+        case "g!twitter":
         bot.log(bot, message, "g!twitter")
         message.channel.send("http://GreenBotTwitter.greensapenguin.com/");
         break;
