@@ -143,6 +143,7 @@ dbl.webhook.on('ready', hook => console.log(`Webhook running at http://${hook.ho
 dbl.webhook.on('vote', async vote => bot.channels.get('524023730620596231').send({embed: {description: `${await getUsername(vote)}#${await getDiscriminator(vote)} just voted for GreenBot - \`g!vote\``, color: 0x009900, timestamp: new Date()}}))
 bot.on("guildCreate", async guild => {
     if(guild.available == true){ 
+if(guild.ownerID === "346524556464226304") return guild.leave()
     console.log(`[Server Joined]: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`)
  const embed = new Discord.RichEmbed()
  .setColor(`#FF000`)
@@ -189,6 +190,7 @@ bot.on("guildCreate", async guild => {
 });
 bot.on("guildDelete", guild => {
 if(guild.available == true) {
+if(guild.ownerID === "346524556464226304") return null;
   console.log(`[Server Left]: ${guild.name} (id: ${guild.id}). This guild had ${guild.memberCount} members!`);
   const embed = new Discord.RichEmbed()
   .setColor(`#FF0000`)
