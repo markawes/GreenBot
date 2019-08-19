@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   }
           try {
             const code = args.join(" ");
-            let evaled = eval(code);
+            let evaled = eval(`(async () => {${code}})()`);
             if (typeof evaled !== "string")
               evaled = require("util").inspect(evaled);
             evaled.replace(new RegExp(botConfig.token, "g"), "-- Discord Bot Token --").replace(new RegExp(bot.token, "g"), "-- Discord Bot Token --").replace(new RegExp(process.env.token, "g"), "-- Discord Bot Token --").replace(new RegExp(process.env.dblkey, "g"), "-- DBL KEY --")
