@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
     msg.edit({embed: {title: `No response, ***Sad ${bot.user.username} noise***`, color: 0xFF0000}})
     }
     }catch(e){
+    message.channel.stopTyping(true)
     msg.edit({embed: {title: "Ouch.. that got me thinking to hard.. I got a error", description: e.message, color: 0xFF0000}})
     }
 }
