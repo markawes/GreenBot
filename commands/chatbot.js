@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     try{
      if(!args[0]) return msg.edit({embed: {title: "Well.. give me something to think about!", color: 0xFF0000}});
     message.channel.startTyping(true)
-    let {body} = await get(`https://some-random-api.ml/chatbot/?message=${args.join(" ")}`)
+    let {body} = await get(`https://some-random-api.ml/chatbot/?message=${encodeURIComponent(args.join(' '))}`)
     if(body){
     msg.edit({embed: {title: "<:Greenbot:526224686560968715> Chat Bot <:Greenbot:526224686560968715>", description: body.response, color: 0xFF000}})
     await message.channel.stopTyping(true)
