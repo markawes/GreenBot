@@ -239,7 +239,7 @@ bot.on('guildMemberRemove', async (member) => {
 bot.on('message', async message => {
     if(message.author.bot || !message.guild || message.webhookID) return; //stops GreenBot from spamming the prefix when he sees the word "prefix"
     if(message.guild.id === "264445053596991498") return null;   
-    if(!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES") && !message.channel.permissionsFor(message.guild.me).has("READ_MESSAGE_HISTORY")) return null; // If the bot doesn't have any permissions for the channel.. it just ignores everything.. because ya know people are retarded
+    if(!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return null; // If the bot doesn't have any permissions for the channel.. it just ignores everything.. because ya know people are retarded
 if(message.guild){
      if(message.member.nickname !== null){ 
     if(message.member.nickname.startsWith("[AFK]")) {
