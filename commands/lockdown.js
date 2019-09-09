@@ -2,7 +2,7 @@ const ms = require('ms'), locks = new Set(), valid = ["unlock", "lift", "un"];
 module.exports.run = async (bot, message, args) => {
   try{
   if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`No can do.. you don't have \`Manage Server\` permission`)
-  if(!message.channel.permissionsFor(message.guild.me).has("MANAGE_ROLES_OR_PERMISSIONS")) return message.reply(`I don't have "Manage Permissions" in this channel!`)
+  if(!message.channel.permissionsFor(message.guild.me).has("MANAGE_ROLES")) return message.reply(`I don't have "Manage Permissions" in this channel!`)
   if(locks.has(message.channel.id) && !valid.includes(args[0] ? args[0].toLowerCase() : "No")) return message.channel.send(`This channel is already in lockdown!`)
   if(locks.has(message.channel.id) && valid.includes(args[0] ? args[0].toLowerCase() : "No")){
   await locks.delete(message.channel.id);
