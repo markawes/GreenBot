@@ -318,6 +318,10 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!penguinvideo")
         message.channel.send("**penguins are bae** https://www.youtube.com/watch?v=c7M686pXr6M");
         break;
+        case "g!ship":
+        bot.log(bot, message, "g!ship goatman97 ")
+        message.channel.send("**I Ship Goatman97 To The Moon");
+        break;
     } 
  } 
     if(message.content.toLowerCase().includes("cookies") && message.guild.id == "389472576235372565") {
