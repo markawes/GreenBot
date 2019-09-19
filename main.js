@@ -322,6 +322,10 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         bot.log(bot, message, "g!ship goatman97 ")
         message.channel.send("**I Ship Goatman97 To The Moon**");
         break;
+        case "g!shot":
+        bot.log(bot, message, "g!shot LeChesh ")
+        message.channel.send("**I Shot LeChesh To The Moon**");
+        break;
     } 
  } 
     if(message.content.toLowerCase().includes("cookies") && message.guild.id == "389472576235372565") {
