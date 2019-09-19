@@ -320,7 +320,7 @@ message.reply("Do `g!bk` to turn off AFK mode!").then(m => m.delete(5000))
         break;
         case "g!ship":
         bot.log(bot, message, "g!ship goatman97 ")
-        message.channel.send("I Ship ${message.author.username} To The Moon");
+        message.channel.send(`I Ship ${message.author.username} To The Moon`);
         break;
         case "g!shot":
         bot.log(bot, message, "g!shot LeChesh ")
