@@ -2,7 +2,7 @@ module.exports.run = async (bot, message, args) => {
     var request = require ("request")
     var mcIP = args[0];
     var mcPort = ""
-    if (!mcIP) mcIP = 'rsmv.net'
+    if (!mcIP) mcIP = 'mc.pengucraft.com'
     var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
     request(url, function(err, response, body) {
         if(err) {
